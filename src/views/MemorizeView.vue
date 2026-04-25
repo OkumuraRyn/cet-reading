@@ -132,21 +132,27 @@ const speak = (content) => {
 };
 
 // ==================== 拼写检查（核心：每次检查后保存缓存） ====================
+// 检查拼写：只判断对错，输入为空时不改变任何状态
 const checkSpell = (e, wordObj) => {
   const userValue = e.target.value.trim().toLowerCase();
+  
+  // 如果输入为空，不做任何操作，保留原有状态
   if (!userValue) {
-    wordObj.status = 'none';
-    saveProgress(words);   // ✅ 立即保存
     return;
   }
 
   if (userValue === wordObj.e.toLowerCase()) {
-    wordObj.status = 'correct';
-    speak(wordObj.e);
+    // 只有在之前不是正确状态时才标记，避免重复朗读
+    if (wordObj.status !== 'correct') {
+        wordObj.status = 'correct';
+        speak(wordObj.e);
+        saveProgress(words);     // 状态改变后保存
+    }
   } else {
+    // 拼写错误，标记为掌握
     wordObj.status = 'wrong';
+    saveProgress(words);     // 状态改变后保存
   }
-  saveProgress(words);     // ✅ 立即保存
 };
 
 const handleEnter = (e, wordObj) => {
