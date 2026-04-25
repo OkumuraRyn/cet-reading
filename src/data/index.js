@@ -6,6 +6,7 @@ import cet4_a3 from './articles/cet4/a3.js';
 import cet4_a4 from './articles/cet4/a4.js';
 import cet4_a5 from './articles/cet4/a5.js';
 import cet4_a6 from './articles/cet4/a6.js';
+import cet4_a7 from './articles/cet4/a7.js';
 
 
 // 2. 导入六级文章
@@ -31,6 +32,7 @@ export const categorizedArticles = {
     cet4_a4,
     cet4_a5,
     cet4_a6,
+    cet4_a7,
   ],
   "CET-6 六级深度阅读": [
     cet6_a1, 
