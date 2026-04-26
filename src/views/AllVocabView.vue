@@ -66,7 +66,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import { studyStore } from '../store/studyStore';
+import { useStudyStore } from '../store/studyStore';
+const studyStore = useStudyStore();
 
 // 记录展开状态的单词列表
 const expandedWords = ref(new Set());
