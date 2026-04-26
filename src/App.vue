@@ -1,17 +1,15 @@
 <template>
   <div class="app-container">
-    <!-- 始终可见的菜单按钮（桌面端） -->
-    <button class="desktop-menu-btn" @click="isMenuOpen = true">
-      ☰
-    </button>
+    <!-- 桌面端菜单按钮 -->
+    <button class="desktop-menu-btn" @click="isMenuOpen = true">☰</button>
 
-    <!-- 移动端顶栏（仅移动端显示） -->
+    <!-- 移动端顶栏 -->
     <header class="mobile-navbar">
       <button class="menu-toggle" @click="isMenuOpen = !isMenuOpen">☰ 目录</button>
       <div class="brand">English Reading</div>
     </header>
 
-    <!-- 遮罩层（菜单打开时） -->
+    <!-- 遮罩层 -->
     <div
       class="menu-overlay"
       :class="{ 'is-active': isMenuOpen }"
@@ -26,36 +24,54 @@
         </router-link>
         <button class="mobile-close-btn" @click="isMenuOpen = false">×</button>
       </div>
+
+      <!-- ========== 树状目录导航（核心改动） ========== -->
       <nav class="nav-content">
-          <div class="nav-group">
-    <router-link
-      to="/memorize"
-      class="nav-link special-link"
-      @click="isMenuOpen = false"
-    >
-      <div class="art-num">📝</div>
-      <div class="art-info">
-        <div class="en-title">单词默写</div>
-        <div class="cn-title">Memorize & Spell</div>
-      </div>
-    </router-link>
-  </div>
-        <div v-for="(list, catName) in categorizedArticles" :key="catName" class="nav-group">
-          <div class="category-label">{{ catName }}</div>
-          <router-link
-            v-for="art in list" :key="art.id"
-            :to="`/article/${art.id}`"
-            class="nav-link"
-            @click="isMenuOpen = false"
-          >
-            <div class="art-num">#{{ art.id }}</div>
-            <div class="art-info">
-              <div class="en-title">{{ art.title }}</div>
-              <div class="cn-title">{{ art.titleCn }}</div>
+        <!-- 单词默写（特殊入口） -->
+        <router-link
+          to="/memorize"
+          class="nav-link special-link"
+          @click="isMenuOpen = false"
+        >
+          <span class="nav-icon">📝</span>
+          <div class="nav-info">
+            <div class="en-title">单词默写</div>
+            <div class="cn-title">Memorize & Spell</div>
+          </div>
+        </router-link>
+
+        <!-- 分类树 -->
+        <div v-for="(articles, category) in categorizedArticles" :key="category" class="tree-group">
+          <!-- 分类标题（可点击展开/收起） -->
+          <div class="tree-parent" @click="toggleCategory(category)">
+            <span class="tree-arrow" :class="{ expanded: expandedCategories.has(category) }">
+              {{ expandedCategories.has(category) ? '▾' : '▸' }}
+            </span>
+            <span class="category-name">{{ category }}</span>
+            <span class="category-count">{{ articles.length }}</span>
+          </div>
+
+          <!-- 子文章列表（带折叠动画） -->
+          <Transition name="tree-slide">
+            <div v-if="expandedCategories.has(category)" class="tree-children">
+              <router-link
+                v-for="art in articles"
+                :key="art.id"
+                :to="`/article/${art.id}`"
+                class="nav-link tree-child"
+                @click="isMenuOpen = false"
+              >
+                <span class="nav-icon">📄</span>
+                <div class="nav-info">
+                  <div class="en-title">#{{ art.id }} {{ art.title }}</div>
+                  <div class="cn-title" v-if="art.titleCn">{{ art.titleCn }}</div>
+                </div>
+              </router-link>
             </div>
-          </router-link>
+          </Transition>
         </div>
       </nav>
+      <!-- ========== 树状目录结束 ========== -->
     </aside>
 
     <!-- 主内容区 -->
@@ -66,18 +82,28 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { categorizedArticles } from './data/index';
+
 const isMenuOpen = ref(false);
+
+// 默认展开第一个分类
+const expandedCategories = reactive(new Set());
+const firstCategory = Object.keys(categorizedArticles)[0];
+if (firstCategory) expandedCategories.add(firstCategory);
+
+// 切换分类展开/收起
+const toggleCategory = (category) => {
+  if (expandedCategories.has(category)) {
+    expandedCategories.delete(category);
+  } else {
+    expandedCategories.add(category);
+  }
+};
 </script>
 
 <style scoped>
-.special-link.router-link-active {
-  background: #eefdf5;
-  border-left: none;
-  border-radius: 10px;
-}
-/* 全局重置 */
+/* ============ 全局重置 ============ */
 body {
   margin: 0;
   padding: 0;
@@ -92,7 +118,7 @@ body {
   position: relative;
 }
 
-/* 桌面端菜单按钮（始终可见，固定在左上角） */
+/* ============ 桌面端菜单按钮 ============ */
 .desktop-menu-btn {
   display: flex;
   align-items: center;
@@ -112,16 +138,14 @@ body {
   box-shadow: 0 4px 12px rgba(66, 185, 131, 0.3);
   transition: transform 0.2s;
 }
-
 .desktop-menu-btn:hover {
   transform: scale(1.05);
 }
 
-/* 移动端顶栏（仅小屏显示） */
+/* ============ 移动端顶栏 ============ */
 .mobile-navbar {
   display: none;
 }
-
 .menu-toggle {
   background: #42b983;
   color: white;
@@ -131,13 +155,12 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-
 .brand {
   font-weight: bold;
   color: #475569;
 }
 
-/* 遮罩 */
+/* ============ 遮罩 ============ */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -148,18 +171,17 @@ body {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s;
 }
-
 .menu-overlay.is-active {
   opacity: 1;
   visibility: visible;
 }
 
-/* 侧边栏（抽屉式） */
+/* ============ 侧边栏（抽屉式） ============ */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 320px;
+  width: 340px;
   height: 100vh;
   background: #f8fafc;
   border-right: 1px solid #e2e8f0;
@@ -169,8 +191,8 @@ body {
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   box-shadow: 20px 0 50px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
-
 .sidebar.is-open {
   transform: translateX(0);
 }
@@ -181,16 +203,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
-
 .sidebar-header h2 {
   font-size: 1.1rem;
   margin: 0;
   color: #1e293b;
 }
-
 .mobile-close-btn {
-  display: block;   /* 桌面端也显示关闭按钮 */
+  display: block;
   border: none;
   background: none;
   font-size: 28px;
@@ -198,76 +219,177 @@ body {
   cursor: pointer;
 }
 
+/* ============ 导航内容区（可滚动） ============ */
 .nav-content {
   flex: 1;
   overflow-y: auto;
-  padding: 15px;
+  padding: 10px 12px;
 }
 
-.nav-group {
-  margin-bottom: 25px;
+/* ============ 树状目录样式 ============ */
+
+/* 分类组 */
+.tree-group {
+  margin-bottom: 4px;
 }
 
-.category-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #64748b;
-  padding: 8px 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.nav-link {
+/* 分类标题（父节点） */
+.tree-parent {
   display: flex;
-  gap: 12px;
-  padding: 12px;
-  text-decoration: none;
-  border-radius: 10px;
-  margin-top: 5px;
-  transition: all 0.2s ease;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
+  transition: background 0.15s;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tree-parent:hover {
+  background: #eef2f6;
 }
 
-.nav-link:hover {
-  background: #f1f5f9;
+/* 三角箭头 */
+.tree-arrow {
+  font-size: 0.75rem;
+  width: 16px;
+  text-align: center;
+  transition: transform 0.2s;
+  color: #94a3b8;
+  flex-shrink: 0;
 }
-
-.nav-link.router-link-active {
-  background: #eefdf5;
-  border-left: 4px solid #42b983;
-}
-
-.art-num {
-  font-size: 0.8rem;
-  font-weight: bold;
+.tree-arrow.expanded {
   color: #42b983;
 }
 
+/* 分类名称 */
+.category-name {
+  flex: 1;
+}
+
+/* 文章数量标签 */
+.category-count {
+  background: #e2e8f0;
+  color: #64748b;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* 子节点容器 */
+.tree-children {
+  padding-left: 12px;
+  border-left: 2px solid #e2e8f0;
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+/* 展开/收起动画 */
+.tree-slide-enter-active,
+.tree-slide-leave-active {
+  transition: all 0.25s ease;
+  max-height: 2000px;
+}
+.tree-slide-enter-from,
+.tree-slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* 子节点链接 */
+.tree-child {
+  padding: 8px 12px !important;
+  margin-top: 0 !important;
+  margin-bottom: 2px;
+  border-radius: 6px !important;
+  border-left: none !important;
+}
+.tree-child:hover {
+  background: #f1f5f9 !important;
+}
+.tree-child.router-link-active {
+  background: #eefdf5 !important;
+  border-left: 3px solid #42b983 !important;
+}
+
+/* 普通导航链接 */
+.nav-link {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 3px;
+  transition: all 0.15s ease;
+  align-items: flex-start;
+}
+.nav-link:hover {
+  background: #f1f5f9;
+}
+.nav-link.router-link-active {
+  background: #eefdf5;
+}
+
+/* 特殊链接（默写） */
+.special-link {
+  margin-bottom: 16px;
+  border: 1px dashed #d1fae5;
+  background: #f9fefb;
+}
+.special-link:hover {
+  background: #eefdf5;
+}
+.special-link.router-link-active {
+  background: #eefdf5;
+  border-color: #42b983;
+}
+
+/* 图标 */
+.nav-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* 文字信息 */
+.nav-info {
+  min-width: 0;
+}
 .en-title {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #1e293b;
   line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .cn-title {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #94a3b8;
-  margin-top: 3px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* 主内容区（无固定边栏占位，自由延展） */
+/* ============ 主内容区 ============ */
 .main-content {
   flex: 1;
   min-width: 0;
   background: white;
 }
 
-/* 移动端适配 */
+/* ============ 移动端适配 ============ */
 @media (max-width: 768px) {
   .desktop-menu-btn {
-    display: none;   /* 移动端隐藏浮动按钮，改用顶栏 */
+    display: none;
   }
-
   .mobile-navbar {
     display: flex;
     position: fixed;
@@ -282,13 +404,11 @@ body {
     padding: 0 15px;
     justify-content: space-between;
   }
-
   .main-content {
-    padding-top: 50px;   /* 留出顶栏空间 */
+    padding-top: 50px;
   }
-
   .sidebar {
-    width: 100%;          /* 移动端全宽抽屉 */
+    width: 100%;
     max-width: 320px;
   }
 }
