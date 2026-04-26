@@ -147,7 +147,8 @@
 import { ref, onMounted, onUnmounted, watch, nextTick, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { askDeepSeek, askAiQuestion, getCachedResult } from '../services/aiService';
-import { studyStore } from '../store/studyStore';
+import { useStudyStore } from '../store/studyStore';
+const studyStore = useStudyStore();
 import { allArticles } from '../data/index';
 
 const route = useRoute();
