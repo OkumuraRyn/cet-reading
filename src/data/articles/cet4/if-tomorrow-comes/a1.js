@@ -1,0 +1,87 @@
+/* src/data/articles/cet6/if-tomorrow-comes/a1.js */
+export default {
+  id: "CET4-ITC-1",
+  type: "CET4",
+  title: "If Tomorrow Comes, Part 1: Chapters 1–6",
+  titleCn: "假如明天来临，第一部分：第1–6章",
+  paragraphs: [
+    // ============ CHAPTER 01 ============
+    {
+      sentences: [
+        { en: "New Orleans THURSDAY, FEBRUARY 20 – 11:00 P.M.", cn: "新奥尔良 2月20日 星期四 晚11点" },
+        { en: "She undressed slowly, dreamily, and when she was naked, she selected a bright red negligee to wear so that the blood would not show.", cn: "她缓缓地、如梦般脱下衣服，赤裸之后，她挑了一件鲜红的睡袍穿上，这样血迹就不会那么显眼。" },
+        { en: "Doris Whitney looked around the bedroom for the last time to make certain that the pleasant room, grown dear over the past thirty years, was neat and tidy.", cn: "多丽丝·惠特尼最后一次环顾卧室，想确定这间三十年来变得亲切的、令人愉快的房间依旧整洁干净。" },
+        { en: "She opened the drawer of the bedside table and carefully removed the gun.", cn: "她拉开床头柜的抽屉，小心地拿出那把枪。" },
+        { en: "It was shiny black, and terrifyingly cold.", cn: "枪身乌黑发亮，触感冰冷得可怕。" },
+        { en: "She placed it next to the telephone and dialed her daughter's number in Philadelphia.", cn: "她把枪放在电话旁，拨了女儿在费城的号码。" },
+        { en: "She listened to the echo of the distant ringing.", cn: "她听着远方传来的回铃声。" },
+        { en: "And then there was a soft 'Hello?'", cn: "然后传来一声轻柔的“喂？”" },
+        { en: "'Tracy... I just felt like hearing the sound of your voice, darling.'", cn: "“特蕾西……我只是想听听你的声音，亲爱的。”" },
+        { en: "'What a nice surprise, Mother.'", cn: "“真是个惊喜，妈妈。”" },
+        { en: "'I hope I didn't wake you up.'", cn: "“但愿没把你吵醒。”" },
+        { en: "'No. I was reading. Just getting ready to go to sleep. Charles and I were going out for dinner, but the weather's too nasty. It's snowing hard here. What's it doing there?'", cn: "“没有，我刚在看书，正准备睡觉。查尔斯和我本来要出去吃晚饭，但天气太坏了。这里雪下得很大，你那儿怎么样？”" },
+        { en: "Dear God, we're talking about the weather, Doris Whitney thought, when there's so much I want to tell her. And can't.", cn: "天哪，我们居然在聊天气，多丽丝·惠特尼心想，有那么多话想告诉她，却又不能说。" },
+        { en: "'Mother? Are you there?'", cn: "“妈妈？你还在吗？”" },
+        { en: "Doris Whitney stared out the window. 'It's raining.' And she thought, How melodramatically appropriate. Like an Alfred Hitchcock movie.", cn: "多丽丝·惠特尼望着窗外。“在下雨。”心想，多么戏剧化地应景，像一部希区柯克电影。" },
+        { en: "'What's that noise?' Tracy asked.", cn: "“那是什么声音？”特蕾西问。" },
+        { en: "Thunder. Too deeply wrapped in her thoughts, Doris had not been aware of it. New Orleans was having a storm.", cn: "是雷声。多丽丝想得太出神，竟没注意到。新奥尔良正在下暴雨。" },
+        { en: "Continued rain, the weatherman had said. Sixty-six degrees in New Orleans. By evening the rain will be turning to thundershowers. Be sure to carry your umbrellas. She would not need an umbrella.", cn: "天气预报说，持续降雨，新奥尔良气温华氏66度，傍晚转为雷阵雨，记得带伞。她不再需要伞了。" },
+        { en: "'That's thunder, Tracy.' She forced a note of cheerfulness into her voice. 'Tell me what's happening in Philadelphia.'", cn: "“那是雷声，特蕾西。”她强作欢快，“跟我说说费城的事吧。”" },
+        { en: "'I feel like a princess in a fairy tale, Mother,' Tracy said. 'I never believed anyone could be so happy. Tomorrow night I'm meeting Charles's parents.'", cn: "“我感觉自己像是童话里的公主，妈妈，”特蕾西说。“我从没想过一个人可以如此幸福。明晚我要见查尔斯的父母。”" },
+        { en: "She deepened her voice as though making a pronouncement. 'The Stanhopes, of Chestnut Hill,' she sighed. 'They're an institution. I have butterflies the size of dinosaurs.'", cn: "她压低声音像在宣布要事。“栗树山的斯坦霍普家族，”她叹了口气，“他们可是名门望族。我紧张得像揣了恐龙那么大的蝴蝶。”" },
+        { en: "'Don't worry. They'll love you, darling.'", cn: "“别担心。他们会爱你的，亲爱的。”" },
+        { en: "'Charles says it doesn't matter. He loves me. And I adore him. I can't wait for you to meet him. He's fantastic.'", cn: "“查尔斯说那不重要。他爱我，我也崇拜他。我等不及让你见他了，他棒极了。”" },
+        { en: "'I'm sure he is.' She would never meet Charles. She would never hold a grandchild in her lap.", cn: "“我相信他一定很棒。”她再也见不到查尔斯了。她永远也不能把孙辈抱在膝上了。" },
+        { en: "No. I must not think about that. 'Does he know how lucky he is to have you, baby?'", cn: "不，不能想这个。“他知道自己有多幸运能拥有你吗，宝贝？”" },
+        { en: "'I keep telling him.' Tracy laughed. 'Enough about me. Tell me what's going on there. How are you feeling?'", cn: "“我一直这么告诉他。”特蕾西笑了。“别说我了。你那边怎么样？你身体好吗？”" },
+        { en: "You're in perfect health, Doris, were Dr. Rush's words. You'll live to be a hundred. One of life's little ironies.", cn: "“你非常健康，多丽丝，”拉什医生的话犹在耳边，“你能活到一百岁。”真是人生的小讽刺。" },
+        { en: "'I feel wonderful.' Talking to you. 'Got a boyfriend yet?' Tracy teased.", cn: "“我感觉好极了。”只要跟你说话。“交男朋友了吗？”特蕾西逗她。" },
+        { en: "Since Tracy's father had died five years earlier, Doris Whitney had not even considered going out with another man, despite Tracy's encouragement.", cn: "自特蕾西父亲五年前去世后，尽管特蕾西一再鼓励，多丽丝·惠特尼从未考虑过和别的男人出去。" },
+        { en: "'No boyfriends.' She changed the subject. 'How is your job? Still enjoying it?'", cn: "“没有男朋友。”她转换话题，“工作怎么样？还喜欢吗？”" },
+        { en: "'I love it. Charles doesn't mind if I keep working after we're married.'", cn: "“我很喜欢。查尔斯不介意我婚后继续工作。”" },
+        { en: "'That's wonderful, baby. He sounds like a very understanding man.'", cn: "“那太好了，宝贝。他听起来是个非常通情达理的男人。”" },
+        { en: "'He is. You'll see for yourself.'", cn: "“他是的。你亲眼见到就知道了。”" },
+        { en: "There was a loud clap of thunder, like an offstage cue. It was time. There was nothing more to say except a final farewell.", cn: "一声霹雳，像舞台后的提示。是时候了。除了最后的告别，已无话可说。" },
+        { en: "'Good-bye, my darling.' She kept her voice carefully steady.", cn: "“再见了，我的宝贝。”她小心地保持声音平稳。" },
+        { en: "'I'll see you at the wedding, Mother. I'll call you as soon as Charles and I set a date.'", cn: "“婚礼上见，妈妈。等查尔斯和我定下日子，我马上给你打电话。”" },
+        { en: "'Yes.' There was one final thing to say, after all. 'I love you very, very much, Tracy.' And Doris Whitney carefully replaced the receiver.", cn: "“好的。”终究还有最后一句话。“我非常、非常爱你，特蕾西。”多丽丝·惠特尼小心地挂上话筒。" },
+        { en: "She picked up the gun. There was only one way to do it. Quickly. She raised the gun to her temple and squeezed the trigger.", cn: "她拿起枪。只有一种做法。快。她把枪抵在太阳穴上，扣下扳机。" }
+      ]
+    },
+    // ============ CHAPTER 02 ============
+    {
+      sentences: [
+        { en: "Philadelphia FRIDAY, FEBRUARY 21 – 8:00 A.M.", cn: "费城 2月21日 星期五 上午8点" },
+        { en: "Tracy Whitney stepped out of the lobby of her apartment building into a gray, sleety rain that fell impartially on sleek limousines driven down Market Street by uniformed chauffeurs, and on the abandoned and boarded-up houses huddled together in the slums of North Philadelphia.", cn: "特蕾西·惠特尼走出公寓楼大厅，迎向一场灰蒙蒙的冻雨，雨水平等地落在市场街上一辆辆由穿制服司机驾驶的豪华轿车，也落在北费城贫民窟里那些被遗弃、用木板封死的房屋上。" },
+        { en: "The rain washed the limousines clean and made sodden messes of the garbage piled high in front of the neglected row houses.", cn: "雨水洗刷着豪华轿车，却让那些被忽视的排屋前堆积如山的垃圾变得湿漉漉泥泞不堪。" },
+        { en: "Tracy Whitney was on her way to work. Her pace was brisk as she walked east on Chestnut Street toward the bank, and it was all she could do to keep from singing aloud.", cn: "特蕾西·惠特尼正在去上班的路上。她沿着栗树街向东朝银行走去，步履轻快，差一点就要唱出声来。" },
+        { en: "She wore a bright-yellow raincoat, boots, and a yellow rain hat that barely contained a mass of shining chestnut hair.", cn: "她穿着一件明黄色的雨衣、雨靴，戴着一顶黄色的雨帽，几乎包不住那一头闪亮的栗色长发。" },
+        { en: "She was in her mid-twenties, with a lively, intelligent face, a full, sensuous mouth, sparkling eyes that could change from a soft moss green to a dark jade in moments, and a trim, athletic figure.", cn: "她二十五六岁，长着一张活泼聪慧的脸，嘴唇丰满性感，双眸闪闪发亮，能瞬间从柔和的苔绿色变成深翠色，身材匀称而健美。" },
+        { en: "Her skin ran the gamut from a translucent white to a deep rose, depending on whether she was angry, tired, or excited.", cn: "她的肤色因情绪而变，从半透明的白皙到深玫瑰红，视她是生气、疲倦还是兴奋而定。" },
+        { en: "Her mother had once told her, 'Honestly, child, sometimes I don't recognize you. You've got all the colors of the wind in you.'", cn: "她母亲曾对她说：“说真的，孩子，有时候我真认不出你。你身上有风所有的颜色。”" },
+        { en: "Now, as Tracy walked down the street, people turned to smile, envying the happiness that shone on her face. She smiled back at them.", cn: "此刻，特蕾西走在街上，行人纷纷回以微笑，羡慕她脸上洋溢的幸福光彩。她也朝他们微笑。" },
+        { en: "It's indecent for anyone to be this happy, Tracy Whitney thought. I'm marrying the man I love, and I'm going to have his baby. What more could anyone ask?", cn: "任何人这么幸福都太不像话了，特蕾西·惠特尼心想。我要嫁给我爱的男人，还会怀上他的孩子。还有什么可求的？" },
+        { en: "As Tracy approached the bank, she glanced at her watch. Eight-twenty. The doors of the Philadelphia Trust and Fidelity Bank would not be open to employees for another ten minutes, but Clarence Desmond, the bank's senior vice-president in charge of the international department, was already turning off the outside alarm and opening the door.", cn: "走近银行时，特蕾西瞥了一眼手表。八点二十。费城信托与忠诚银行的大门还要十分钟才对员工开放，但负责国际业务的高级副总裁克拉伦斯·德斯蒙德已经在关掉外部报警器并开门了。" },
+        { en: "Tracy enjoyed watching the morning ritual. She stood in the rain, waiting, as Desmond entered the bank and locked the door behind him.", cn: "特蕾西喜欢观看这清晨的惯例。她站在雨中等待，看着德斯蒙德走进银行并随手锁上门。" },
+        { en: "Banks the world over have arcane safety procedures, and the Philadelphia Trust and Fidelity Bank was no exception. The routine never varied, except for the security signal, which was changed every week. The signal that week was a half-lowered venetian blind, indicating to the employees waiting outside that a search was in progress to make certain that no intruders were concealed on the premises, waiting to hold the employees hostage.", cn: "世界各地的银行都有神秘的安全程序，费城信托与忠诚银行也不例外。程序从不改变，只有安全信号每周更换。那周的信号是一扇半拉的百叶窗，告诉在外面等候的员工，正在搜查确保没有入侵者潜伏在楼内准备劫持员工为人质。" },
+        { en: "Clarence Desmond was checking the lavatories, storeroom, vault, and safe-deposit area. Only when he was fully satisfied that he was alone would the venetian blind be raised as a sign that all was well.", cn: "克拉伦斯·德斯蒙德正在检查洗手间、储藏室、金库和保险箱区。只有当他完全确信只有自己一人时，百叶窗才会升起，表示一切正常。" },
+        { en: "The senior bookkeeper was always the first of the employees to be admitted. He would take his place next to the emergency alarm until all the other employees were inside, then lock the door behind them.", cn: "总账会计总是第一个被放进去。他会守在紧急警报旁，直到所有其他员工都进来，然后锁上身后的门。" },
+        { en: "Promptly at 8:30, Tracy Whitney entered the ornate lobby with her fellow workers, took off her raincoat, hat, and boots, and listened with secret amusement to the others complaining about the rainy weather.", cn: "八点半整，特蕾西·惠特尼和同事们一起走进华丽的大厅，脱下雨衣、帽子和靴子，暗觉好笑地听其他人抱怨下雨天。" },
+        { en: "'The damned wind carried away my umbrella,' a teller complained. 'I'm soaked.'", cn: "“这该死的风把我伞吹跑了，”一个出纳抱怨，“我全身湿透了。”" },
+        { en: "'I passed two ducks swimming down Market Street,' the head cashier joked.", cn: "“我看见两只鸭子沿着市场街游过去，”总出纳开玩笑说。" },
+        { en: "'The weatherman says we can expect another week of this. I wish I was in Florida.'", cn: "“天气预报说还要下一周。真希望我在佛罗里达。”" },
+        { en: "Tracy smiled and went to work. She was in charge of the cable-transfer department.", cn: "特蕾西笑了笑，开始工作。她负责电汇部门。" },
+        { en: "Until recently, the transfer of money from one bank to another and from one country to another had been a slow, laborious process, requiring multiple forms to be filled out and dependent on national and international postal services. With the advent of computers, the situation had changed dramatically, and enormous amounts of money could be transferred instantaneously.", cn: "直到最近，从一家银行到另一家银行、从一国到另一国的资金转移一直是一个缓慢、费力的过程，需要填写多份表格并依赖国内和国际邮政服务。随着计算机的出现，情况发生了巨大变化，巨额资金可以瞬间转移。" },
+        { en: "It was Tracy's job to extract overnight transfers from the computer and to make computer transfers to other banks. All transactions were in code, changed regularly to prevent unauthorized access. Each day, millions of electronic dollars passed through Tracy's hands.", cn: "特蕾西的工作是从电脑中提取隔夜转账，并向其他银行进行电脑转账。所有交易都以代码进行，定期更换以防止未经授权的访问。每天，数百万电子美元经由特蕾西之手流过。" },
+        { en: "It was fascinating work, the lifeblood that fed the arteries of business all over the globe, and until Charles Stanhope III had come into Tracy's life, banking had been the most exciting thing in the world for her.", cn: "这是迷人的工作，是滋养全球商业动脉的命脉，在查尔斯·斯坦霍普三世进入特蕾西的生活之前，银行业一直是她心目中最激动人心的事。" },
+        { en: "The Philadelphia Trust and Fidelity Bank had a large international division, and at lunch Tracy and her fellow workers would discuss each morning's activities. It was heady conversation.", cn: "费城信托与忠诚银行有一个庞大的国际业务部，午餐时特蕾西和同事们会讨论上午的活动。那是令人兴奋的谈话。" },
+        { en: "Deborah, the head bookkeeper, announced, 'We just closed the hundred-million-dollar syndicated loan to Turkey....'", cn: "总账会计德博拉宣布：“我们刚敲定了给土耳其的一亿美元银团贷款……”" },
+        { en: "Mae Trenton, secretary to the vice-president of the bank, said in a confidential tone, 'At the board meeting this morning they decided to join the new money facility to Peru. The up-front fee is over five million dollars....'", cn: "银行副总裁的秘书梅·特伦顿用机密的语气说：“今天上午的董事会上，他们决定加入给秘鲁的新融资安排。前期费用超过五百万美元……”" },
+        { en: "Jon Creighton, the bank bigot, added, 'I understand we're going in on the Mexican rescue package for fifty million. Those wetbacks don't deserve a damned cent....'", cn: "银行里的偏执狂乔恩·克赖顿补充道：“我听说我们要参与给墨西哥的五千万元救助计划。那些偷渡客根本不配拿一分钱……”" },
+        { en: "'It's interesting,' Tracy said thoughtfully, 'that the countries that attack America for being too money-oriented are always the first to beg us for loans.' It was the subject on which she and Charles had had their first argument.", cn: "“有意思，”特蕾西若有所思地说，“那些攻击美国太金钱至上的国家总是最先跑来求我们贷款。”这正是她和查尔斯第一次争论的话题。" },
+        { en: "Tracy had met Charles Stanhope III at a financial symposium where Charles was the guest speaker.", cn: "特蕾西是在一次金融研讨会上认识查尔斯·斯坦霍普三世的，查尔斯是那次会议的特邀演讲人。" },
+        { en: "He ran the investment house founded by his great-grandfather, and his company did a good deal of business with the bank Tracy worked for.", cn: "他经营着曾祖父创立的投资公司，这家公司与特蕾西工作的银行有大量业务往来。" }
+      ]
+    }
+  ]
+};
