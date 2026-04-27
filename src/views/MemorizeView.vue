@@ -64,7 +64,7 @@
 <script setup>
 import { ref, computed, reactive, onMounted, onUnmounted } from 'vue';
 import { memorizeWords } from '../data/Vocab/v1.js';
-
+import { memorizeWordsV2 } from '../data/Vocab/v2.js';
 // ==================== 本地缓存管理 ====================
 const STORAGE_KEY = 'cet_memorize_progress';
 
