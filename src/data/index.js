@@ -9,6 +9,7 @@ const rawArticles = Object.entries(articleModules).map(([path, mod]) => {
   // 从路径推断分类
   if (path.includes('/cet4/')) return { ...article, _category: 'CET-4 四级核心阅读' };
   if (path.includes('/the-everest-story/')) return { ...article, _category: '六级扩展 · The Everest Story' };
+  if (path.includes('/wonder/')) return { ...article, _category: '六级扩展 · Wonder' };
   if (path.includes('/cet6/')) return { ...article, _category: 'CET-6 六级深度阅读' };
   if (path.includes('/zsb/')) return { ...article, _category: '专升本阅读' };
   return null;
