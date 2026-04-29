@@ -1,6 +1,5 @@
 <!-- src/components/AiPanel.vue -->
 <template>
-  <!-- 浮动面板 -->
   <div
     class="ai-float"
     :class="{
@@ -8,20 +7,20 @@
       'is-mobile': isMobile,
       'is-dragging': dragging,
     }"
-    :style="
-      !isMobile
-        ? { left: panelX + 'px', top: panelY + 'px' }
-        : {}
-    "
+    :style="!isMobile ? { left: panelX + 'px', top: panelY + 'px' } : {}"
     @mousedown="startDrag"
     @touchstart="startDrag"
   >
-    <!-- 折叠状态：圆形按钮（移动端也固定在底部） -->
-    <div v-if="!isAiExpanded" class="float-btn" @click="isAiExpanded = true">
-      🤖
+    <!-- 折叠按钮（桌面端通过拖拽逻辑展开，移动端 click 直接展开） -->
+    <div
+      v-if="!isAiExpanded"
+      class="float-btn"
+      @click.stop="isMobile && (isAiExpanded = true)"
+    >
+      Ai
     </div>
 
-    <!-- 展开状态：毛玻璃卡片（标题栏可拖拽） -->
+    <!-- 展开卡片（毛玻璃效果 + 透明标题栏） -->
     <div v-else class="ai-card glass-card">
       <div class="card-header" @mousedown.stop @touchstart.stop>
         <span>AI 助手分析</span>
@@ -29,7 +28,6 @@
       </div>
 
       <div class="ai-body">
-        <!-- 上下文预览 -->
         <div v-if="selectedSentence" class="context-preview">
           <small>当前句子</small>
           <p>{{ selectedSentence }}</p>
@@ -38,13 +36,10 @@
           </p>
         </div>
 
-        <!-- 加载中 -->
         <div v-if="studyStore.isAiLoading" class="loading-state">
           <span class="loading-spinner"></span>
           深度分析中...
         </div>
-
-        <!-- AI 分析结果 -->
         <div v-else-if="studyStore.currentDictEntry" class="result-area">
           <div class="ai-word-title">
             {{ studyStore.currentDictEntry.word || '分析结果' }}
@@ -60,8 +55,6 @@
             + 存入本篇默写本
           </button>
         </div>
-
-        <!-- 空状态 -->
         <div v-else class="empty-state">
           <div class="empty-icon">📖</div>
           <p>长按单词深度解析</p>
@@ -69,7 +62,6 @@
         </div>
       </div>
 
-      <!-- 提问输入 -->
       <div class="ai-input-group">
         <input
           type="text"
@@ -132,40 +124,46 @@ const handleQuestionSubmit = async () => {
 
 // ==================== 移动端检测 ====================
 const isMobile = ref(window.innerWidth <= 768)
-
 const updateMobile = () => {
   isMobile.value = window.innerWidth <= 768
 }
 window.addEventListener('resize', updateMobile)
 onBeforeUnmount(() => window.removeEventListener('resize', updateMobile))
 
-// ==================== 拖拽管理（仅桌面端） ====================
-const panelX = ref(window.innerWidth - 400)
-const panelY = ref(window.innerHeight - 450)
+// ==================== 桌面端拖拽 ====================
+const panelX = ref(window.innerWidth - 420)
+const panelY = ref(window.innerHeight - 480)
 const dragging = ref(false)
+const hasMoved = ref(false)
+const DRAG_THRESHOLD = 5 // 移动超过此像素才算拖拽
+
+let dragSource = null // 'float' | 'header'
 let startX = 0
 let startY = 0
 
 const setDefaultPosition = () => {
-  // 避免与右下角全文朗读按钮重叠（按钮 bottom:30px, right:30px）
-  panelX.value = Math.max(20, window.innerWidth - 420)
-  panelY.value = Math.max(20, window.innerHeight - 480)
+  if (!isMobile.value) {
+    panelX.value = Math.max(20, window.innerWidth - 420)
+    panelY.value = Math.max(20, window.innerHeight - 480)
+  }
 }
-
 onMounted(setDefaultPosition)
 window.addEventListener('resize', setDefaultPosition)
 onBeforeUnmount(() => window.removeEventListener('resize', setDefaultPosition))
 
 const startDrag = (e) => {
-  if (isMobile.value) return // 移动端不允许拖拽
+  if (isMobile.value) return // 移动端禁用拖拽
 
-  // 只允许点击标题栏或折叠按钮时拖动
-  if (!e.target.closest('.card-header') && !e.target.closest('.float-btn')) return
+  const headerEl = e.target.closest('.card-header')
+  const floatBtnEl = e.target.closest('.float-btn')
+  if (!headerEl && !floatBtnEl) return
 
   dragging.value = true
+  hasMoved.value = false
+  dragSource = headerEl ? 'header' : 'float'
+
   const clientX = e.touches ? e.touches[0].clientX : e.clientX
   const clientY = e.touches ? e.touches[0].clientY : e.clientY
-
   startX = clientX - panelX.value
   startY = clientY - panelY.value
 
@@ -181,14 +179,16 @@ const onDrag = (e) => {
   const clientX = e.touches ? e.touches[0].clientX : e.clientX
   const clientY = e.touches ? e.touches[0].clientY : e.clientY
 
-  panelX.value = Math.min(
-    Math.max(clientX - startX, 0),
-    window.innerWidth - 60
-  )
-  panelY.value = Math.min(
-    Math.max(clientY - startY, 0),
-    window.innerHeight - 60
-  )
+  const newX = clientX - startX
+  const newY = clientY - startY
+
+  panelX.value = Math.min(Math.max(newX, 0), window.innerWidth - 60)
+  panelY.value = Math.min(Math.max(newY, 0), window.innerHeight - 60)
+
+  // 判断是否移动超过阈值
+  if (Math.abs(newX - panelX.value) > DRAG_THRESHOLD || Math.abs(newY - panelY.value) > DRAG_THRESHOLD) {
+    hasMoved.value = true
+  }
 }
 
 const stopDrag = () => {
@@ -197,6 +197,12 @@ const stopDrag = () => {
   document.removeEventListener('mouseup', stopDrag)
   document.removeEventListener('touchmove', onDrag)
   document.removeEventListener('touchend', stopDrag)
+
+  // 桌面端 float 按钮：未移动视为点击，展开面板
+  if (dragSource === 'float' && !hasMoved.value && !isMobile.value) {
+    isAiExpanded.value = true
+  }
+  dragSource = null
 }
 
 onBeforeUnmount(stopDrag)
@@ -212,7 +218,7 @@ defineExpose({ isAiExpanded })
   user-select: none;
 }
 
-/* 折叠时的圆形按钮 */
+/* 折叠按钮 */
 .float-btn {
   width: 48px;
   height: 48px;
@@ -232,7 +238,7 @@ defineExpose({ isAiExpanded })
   box-shadow: 0 6px 20px rgba(66, 185, 131, 0.5);
 }
 
-/* 展开时的毛玻璃卡片 */
+/* 毛玻璃卡片 */
 .ai-card {
   width: 360px;
   max-height: 520px;
@@ -247,9 +253,11 @@ defineExpose({ isAiExpanded })
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* 标题栏（拖拽句柄） */
+/* 半透明毛玻璃标题栏 */
 .card-header {
-  background: linear-gradient(135deg, #42b983, #2e865f);
+  background: rgba(66, 185, 131, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: white;
   padding: 12px 18px;
   display: flex;
@@ -259,6 +267,7 @@ defineExpose({ isAiExpanded })
   font-size: 1rem;
   cursor: move;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 .close-btn {
   background: none;
@@ -275,7 +284,6 @@ defineExpose({ isAiExpanded })
   opacity: 1;
 }
 
-/* 内容区域 */
 .ai-body {
   flex: 1;
   overflow-y: auto;
@@ -293,10 +301,7 @@ defineExpose({ isAiExpanded })
   margin-bottom: 12px;
   border-left: 4px solid #42b983;
 }
-.context-preview small {
-  color: #64748b;
-  font-size: 0.75rem;
-}
+.context-preview small { color: #64748b; font-size: 0.75rem; }
 .translation-preview {
   color: #42b983;
   margin-top: 8px;
@@ -305,10 +310,8 @@ defineExpose({ isAiExpanded })
   padding-top: 5px;
 }
 
-/* 分析结果 */
-.result-area {
-  animation: fadeIn 0.3s ease;
-}
+/* 结果动画 */
+.result-area { animation: fadeIn 0.3s ease; }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -335,20 +338,17 @@ defineExpose({ isAiExpanded })
   cursor: pointer;
   transition: background 0.2s;
 }
-.save-word-btn:hover {
-  background: #2e865f;
-}
+.save-word-btn:hover { background: #2e865f; }
 
-/* 空状态 & 加载 */
+/* 空状态 */
 .empty-state {
   text-align: center;
   color: #94a3b8;
   padding: 30px 0;
 }
-.empty-icon {
-  font-size: 2rem;
-  margin-bottom: 8px;
-}
+.empty-icon { font-size: 2rem; margin-bottom: 8px; }
+
+/* 加载 */
 .loading-state {
   text-align: center;
   color: #42b983;
@@ -360,18 +360,15 @@ defineExpose({ isAiExpanded })
   font-weight: 500;
 }
 .loading-spinner {
-  width: 18px;
-  height: 18px;
-  border: 3px solid rgba(66, 185, 131, 0.2);
+  width: 18px; height: 18px;
+  border: 3px solid rgba(66,185,131,0.2);
   border-top: 3px solid #42b983;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* 提问输入区 */
+/* 输入区域 */
 .ai-input-group {
   display: flex;
   gap: 8px;
@@ -399,15 +396,10 @@ defineExpose({ isAiExpanded })
   cursor: pointer;
   transition: background 0.2s;
 }
-.ai-input-group button:hover:not(:disabled) {
-  background: #2e865f;
-}
-.ai-input-group button:disabled {
-  background: #cbd5e1;
-  cursor: not-allowed;
-}
+.ai-input-group button:hover:not(:disabled) { background: #2e865f; }
+.ai-input-group button:disabled { background: #cbd5e1; cursor: not-allowed; }
 
-/* ========== 移动端固定底部 ========== */
+/* ========== 移动端 ========== */
 @media (max-width: 768px) {
   .ai-float {
     left: 0 !important;
@@ -415,7 +407,6 @@ defineExpose({ isAiExpanded })
     bottom: 0 !important;
     top: auto !important;
     z-index: 899;
-    width: auto !important;
   }
   .float-btn {
     position: absolute;
@@ -429,10 +420,6 @@ defineExpose({ isAiExpanded })
     width: 100%;
     max-height: 60vh;
     border-radius: 20px 20px 0 0;
-    margin: 0 auto;
-  }
-  .card-header {
-    cursor: default; /* 移动端不需要拖拽手势 */
   }
 }
 </style>
