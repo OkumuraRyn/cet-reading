@@ -1,3 +1,4 @@
+<!-- src/views/HomeView.vue -->
 <template>
   <div class="home-container">
     <header class="home-header">
@@ -20,7 +21,6 @@
 
     <!-- ========== 树状分类展示 ========== -->
     <section v-for="(articles, category) in categorizedArticles" :key="category" class="category-section">
-      <!-- 分类标题（可点击展开/收起） -->
       <h2 class="category-title" @click="toggleCategory(category)">
         <span class="tree-arrow" :class="{ expanded: expandedCategories.has(category) }">
           {{ expandedCategories.has(category) ? '▾' : '▸' }}
@@ -29,7 +29,6 @@
         <span class="category-count">{{ articles.length }} 篇</span>
       </h2>
 
-      <!-- 文章网格（带折叠动画） -->
       <Transition name="home-slide">
         <div v-if="expandedCategories.has(category)" class="article-grid">
           <router-link
@@ -58,10 +57,8 @@ import { categorizedArticles } from '../data/index';
 import { useStudyStore } from '../store/studyStore';
 const studyStore = useStudyStore();
 
-// 默认展开第一个分类
+// ✅ 改动：默认全部合上，不展开任何分类
 const expandedCategories = reactive(new Set());
-const firstCategory = Object.keys(categorizedArticles)[0];
-if (firstCategory) expandedCategories.add(firstCategory);
 
 const toggleCategory = (category) => {
   if (expandedCategories.has(category)) {
@@ -266,6 +263,9 @@ const toggleCategory = (category) => {
   }
   .article-grid {
     grid-template-columns: 1fr;
+  }
+  .header-content h1 {
+    font-size: 1.8rem;
   }
 }
 </style>
