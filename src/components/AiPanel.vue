@@ -225,6 +225,29 @@ defineExpose({ isAiExpanded })
 </script>
 
 <style scoped>
+  .mobile-reading-controls {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(241, 245, 249, 0.6);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+.mobile-reading-controls button {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #42b983;
+  background: rgba(66, 185, 131, 0.1);
+  color: #2e865f;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mobile-reading-controls button:hover {
+  background: rgba(66, 185, 131, 0.2);
+}
 /* ========== 浮动容器 ========== */
 .ai-float {
   position: fixed;
