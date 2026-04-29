@@ -335,7 +335,7 @@ defineExpose({ isAiExpanded })
     right: 0;
     width: 100%;
     height: 60vh;
-    z-index: 2000;
+    z-index: 899;  /* ✅ 从 2000 改为 899，低于遮罩层 1000 */
     border-left: none;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
