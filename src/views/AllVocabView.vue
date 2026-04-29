@@ -29,7 +29,6 @@
             <strong class="word-text">{{ v.word }}</strong>
           </div>
           
-          <!-- 核心改动：点击切换展开状态 -->
           <div 
             class="mean-col" 
             :class="{ 'is-expanded': isExpanded(v.word) }"
@@ -38,7 +37,7 @@
             <span class="detail-text">
               {{ isExpanded(v.word) ? v.detail : truncateText(v.detail) }}
             </span>
-            <span v-if="v.detail && v.detail.length > 40" class="expand-btn">
+            <span v-if="v.detail && v.detail.length > 60" class="expand-btn">
               {{ isExpanded(v.word) ? ' [收起]' : ' [展开]' }}
             </span>
           </div>
@@ -69,7 +68,6 @@ import { ref } from 'vue';
 import { useStudyStore } from '../store/studyStore';
 const studyStore = useStudyStore();
 
-// 记录展开状态的单词列表
 const expandedWords = ref(new Set());
 
 const isExpanded = (word) => expandedWords.value.has(word);
@@ -82,25 +80,26 @@ const toggleExpand = (word) => {
   }
 };
 
+// ✅ 改动：截断长度从 40 增加到 60
 const truncateText = (text) => {
   if (!text) return "";
-  return text.length > 40 ? text.substring(0, 40) + "..." : text;
+  return text.length > 60 ? text.substring(0, 60) + "..." : text;
 };
 </script>
 
 <style scoped>
 .all-vocab-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
 .back-link { text-decoration: none; color: #64748b; margin-right: 20px; }
 .total-badge { background: #42b983; color: white; padding: 8px 20px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; }
 
 .vocab-table { background: white; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-.table-header { display: grid; grid-template-columns: 1.2fr 4fr 2fr 0.8fr; background: #f8fafc; padding: 15px 20px; font-weight: bold; color: #475569; }
-.table-row { display: grid; grid-template-columns: 1.2fr 4fr 2fr 0.8fr; padding: 18px 20px; border-top: 1px solid #f1f5f9; align-items: start; }
+.table-header { display: grid; grid-template-columns: 1fr 4.5fr 1.8fr 0.7fr; background: #f8fafc; padding: 15px 20px; font-weight: bold; color: #475569; }
+.table-row { display: grid; grid-template-columns: 1fr 4.5fr 1.8fr 0.7fr; padding: 18px 20px; border-top: 1px solid #f1f5f9; align-items: start; }
 
 .word-text { font-size: 1.1rem; color: #1e293b; }
 
-/* 释义列样式优化 */
+/* ✅ 改动：优化释义列 */
 .mean-col { 
   color: #475569; 
   font-size: 0.9rem; 
@@ -109,12 +108,16 @@ const truncateText = (text) => {
   cursor: pointer; 
   transition: background 0.2s;
   border-radius: 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .mean-col:hover { color: #1e293b; }
 .mean-col.is-expanded { 
-  white-space: pre-line; /* 保持 AI 输出的换行格式 */
+  white-space: pre-line;
   background: #f8fafc;
   padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .expand-btn {
@@ -122,6 +125,7 @@ const truncateText = (text) => {
   font-size: 0.75rem;
   font-weight: bold;
   margin-left: 5px;
+  white-space: nowrap;
 }
 
 .source-tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -132,6 +136,7 @@ const truncateText = (text) => {
 .del-btn:hover { color: #ef4444; text-decoration: underline; }
 
 @media (max-width: 768px) {
+  .page-header h1 { font-size: 1.3rem; }
   .table-header { display: none; }
   .table-row { grid-template-columns: 1fr; gap: 10px; }
   .mean-col { padding: 0; }
