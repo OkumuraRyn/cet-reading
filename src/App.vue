@@ -71,6 +71,14 @@
           </Transition>
         </div>
       </nav>
+      <div style="padding: 10px 12px; border-top: 1px solid #e2e8f0; margin-top: auto;">
+  <input
+    type="password"
+    placeholder="输入 DeepSeek API Key"
+    @blur="saveApiKey"
+    style="width: 100%; padding: 6px; font-size: 0.8rem; border: 1px solid #ccc; border-radius: 4px;"
+  />
+</div>
       <!-- ========== 树状目录结束 ========== -->
     </aside>
 
@@ -86,6 +94,13 @@ import { ref, reactive } from 'vue';
 import { categorizedArticles } from './data/index';
 
 const isMenuOpen = ref(false);
+
+  const saveApiKey = (e) => {
+  const key = e.target.value.trim();
+  if (key) {
+    localStorage.setItem('deepseek_api_key', key);
+  }
+};
 
 // 默认展开第一个分类
 const expandedCategories = reactive(new Set());
