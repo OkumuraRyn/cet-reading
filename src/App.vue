@@ -49,35 +49,63 @@
         </router-link>
 
         <!-- 分类树 -->
-        <div v-for="(articles, category) in categorizedArticles" :key="category" class="tree-group">
-          <div class="tree-parent" @click="toggleCategory(category)">
-            <span class="tree-arrow" :class="{ expanded: expandedCategories.has(category) }">
-              {{ expandedCategories.has(category) ? '▾' : '▸' }}
-            </span>
-            <span class="category-name">{{ category }}</span>
-            <span class="category-count">{{ articles.length }}</span>
-          </div>
-          <Transition name="tree-slide">
-            <div v-if="expandedCategories.has(category)" class="tree-children">
-              <router-link
-                v-for="art in articles"
-                :key="art.id"
-                :to="`/article/${art.id}`"
-                class="nav-link tree-child"
-                @click="isMenuOpen = false"
-              >
-                <span class="nav-icon">📄</span>
-                <div class="nav-info">
-                  <div class="en-title">#{{ art.id }} {{ art.title }}</div>
-                  <div class="cn-title" v-if="art.titleCn">{{ art.titleCn }}</div>
-                </div>
-              </router-link>
-            </div>
-          </Transition>
-        </div>
-      </nav>
-    </aside>
+        <div v-for="(group, parentName) in categoryTreeData" :key="parentName" class="tree-group">
+  <!-- 父分类 -->
+  <div class="tree-parent" @click="toggleCategory(parentName)">
+    <span class="tree-arrow" :class="{ expanded: expandedCategories.has(parentName) }">
+      {{ expandedCategories.has(parentName) ? '▾' : '▸' }}
+    </span>
+    <span class="category-name">{{ parentName }}</span>
+    <span class="category-count">{{ countParentArticles(group) }}</span>
+  </div>
 
+  <Transition name="tree-slide">
+    <div v-if="expandedCategories.has(parentName)" class="tree-children">
+      <!-- 普通文章 -->
+      <router-link
+        v-for="art in group.articles"
+        :key="art.id"
+        :to="`/article/${art.id}`"
+        class="nav-link tree-child"
+        @click="isMenuOpen = false"
+      >
+        <span class="nav-icon">📄</span>
+        <div class="nav-info">
+          <div class="en-title">#{{ art.id }} {{ art.title }}</div>
+          <div class="cn-title" v-if="art.titleCn">{{ art.titleCn }}</div>
+        </div>
+      </router-link>
+
+      <!-- 子分类 -->
+      <div v-for="(sub, subName) in group.subGroups" :key="subName" class="sub-group">
+        <div class="tree-parent sub-parent" @click.stop="toggleCategory(subName)">
+          <span class="tree-arrow" :class="{ expanded: expandedCategories.has(subName) }">
+            {{ expandedCategories.has(subName) ? '▾' : '▸' }}
+          </span>
+          <span class="category-name">{{ subName }}</span>
+          <span class="category-count">{{ sub.articles.length }}</span>
+        </div>
+        <Transition name="tree-slide">
+          <div v-if="expandedCategories.has(subName)" class="tree-children sub-children">
+            <router-link
+              v-for="art in sub.articles"
+              :key="art.id"
+              :to="`/article/${art.id}`"
+              class="nav-link tree-child"
+              @click="isMenuOpen = false"
+            >
+              <span class="nav-icon">📄</span>
+              <div class="nav-info">
+                <div class="en-title">#{{ art.id }} {{ art.title }}</div>
+                <div class="cn-title" v-if="art.titleCn">{{ art.titleCn }}</div>
+              </div>
+            </router-link>
+          </div>
+        </Transition>
+      </div>
+    </div>
+  </Transition>
+</div>
     <!-- 主内容区 -->
     <main class="main-content" :class="{ 'hide-ai-panel': isMenuOpen }">
       <router-view :key="$route.fullPath" />
@@ -87,19 +115,19 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
-import { categorizedArticles } from './data/index';
+import { categoryTreeData } from './data/index';
 
 const isMenuOpen = ref(false);
 
 // ✅ 改动：默认全部合上，不展开任何分类
 const expandedCategories = reactive(new Set());
 
-const toggleCategory = (category) => {
-  if (expandedCategories.has(category)) {
-    expandedCategories.delete(category);
-  } else {
-    expandedCategories.add(category);
+const countParentArticles = (group) => {
+  let total = group.articles.length;
+  for (const sub of Object.values(group.subGroups)) {
+    total += sub.articles.length;
   }
+  return total;
 };
 
 // API Key 管理
@@ -449,5 +477,14 @@ body {
 }
 .api-key-input:focus {
   border-color: #42b983;
+}
+
+  .sub-parent {
+  padding-left: 24px;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.sub-children {
+  margin-left: 24px;
 }
 </style>
