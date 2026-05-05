@@ -1,6 +1,6 @@
 /* src/data/articles/zsb/a2.js */
 export default {
-  id: "ZSB-2",
+  id: "ZSB-3",
   type: "ZSB",
   title: "The Silent Language",
   titleCn: "无声的语言",
