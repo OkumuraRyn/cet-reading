@@ -1,54 +1,77 @@
-/* src/data/articles/zsb/a3.js */
+/* src/data/articles/cet4/a7.js */
 export default {
   id: "CET4-7",
   type: "CET4",
-  title: "Building Beds, Building Hope",
-
+  title: "Successful People Fail the Most",
+  titleCn: "成功的人失败最多",
   paragraphs: [
+    { type: "date", text: "May 6, 2026" },
     {
+      type: "text",
       sentences: [
-        { en: "More than 6,500 volunteers came together inside the Charlotte Convention Center in North Carolina for an extraordinary mission: build 10,000 beds in just 24 hours for children who do not have a bed of their own.", cn: "6500多名志愿者齐聚北卡罗来纳州夏洛特会议中心，执行一项非凡使命：在24小时内为没有自己床铺的儿童建造10000张床。" },
-        { en: "The massive effort was organized to support Sleep in Heavenly Peace, a nonprofit dedicated to building and delivering beds to children in need across the United States.", cn: "这项大规模活动旨在支持'天堂安睡'组织，这是一家致力于为全美有需要的儿童建造和运送床铺的非营利机构。" }
+        { en: "After a setback, adopt the Hui-Chinese approach of suanli, 酸了, and move on.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 3, text: "KEY POINTS" },
+    {
+      type: "text",
+      sentences: [
+        { en: "For the Hui-Chinese, giving up is acceptable if there is no method or way forward.", cn: "" },
+        { en: "In modern society, we are set up to feel like we have already failed.", cn: "" },
+        { en: "Just scrolling through someone else’s social media feed can make us feel like losers.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "Volunteers from companies and organizations including Lowe's, Bank of America, Honeywell, and Rebuilding Together worked side by side along 16 build lines, transforming raw lumber into finished bed frames.", cn: "来自劳氏公司、美国银行、霍尼韦尔和'携手重建'等公司和组织的志愿者，在16条生产线上并肩工作，将原木料变成成品床架。" },
-        { en: "By the end of the event, the volunteers had built an incredible 10,027 beds.", cn: "活动结束时，志愿者们建造了惊人的10027张床。" }
+        { en: "I know a young man who strived, sweated, and persevered to join the majors in hockey. He played with the best. He was fast, talented, hard-working, and competed in the company of champions. Yet, through no fault of his own, he ultimately didn’t make the cut, even though he had done the best he could. After that, he pivoted from sports and earned a doctorate in public health. I would say this was an excellent adaptation.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "The scale of the project was staggering.", cn: "该项目的规模令人震惊。" },
-        { en: "Volunteers used more than 200 miles of lumber, nearly 740,000 wood screws, 2,000 gallons of stain, and thousands of sanding discs to complete the beds.", cn: "志愿者们使用了超过200英里的木材、近74万颗木螺丝、2000加仑着色剂和数千个砂光盘来完成床铺。" },
-        { en: "Teams worked in waves, cutting, sanding, assembling, and finishing the frames as hundreds of people moved in sync to keep the production lines going.", cn: "各小组轮番工作，切割、打磨、组装和修整框架，数百人同步行动以保持生产线运转。" }
+        { en: "This reminded me of the Hui-Chinese word suanli, 酸了, which means sour and is used when someone needs to give up and move on. The idea of suanli is similar to the Japanese concept of shoganai, which means “the matter cannot be helped.” Another term the Hui use is mei banfa 没办法, meaning there is no method. Moving on is acceptable if there is no method or way forward. These terms are used to acknowledge the disappointment of a situation, and if there is nothing to be done to ameliorate it, everyone moves on. There isn’t a cheering squad telling us to push through our defeats to get to the other side. There is no point in pursuing something that has gone sour. Accepting failure and moving on is mei banfa.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "For many volunteers, the project hit close to home.", cn: "对许多志愿者来说，这个项目触动了他们的内心。" },
-        { en: "\"I'm thinking about my own kids,\" said Jenna Restrepo, a product manager at Lowe's.", cn: "劳氏公司的产品经理珍娜·雷斯特雷波说：'我想到了自己的孩子。'" },
-        { en: "\"I'm so fortunate to put them in their own beds. I hope every child feels as safe and comfortable as mine.\"", cn: "'我很幸运能让他们睡在自己的床上。我希望每个孩子都能像我的孩子一样感到安全和舒适。'" }
+        { en: "The feeling of failure often accompanies emotions like shame and guilt. In modern society, we are set up to feel like we have already failed. Just scrolling through someone else’s social media feeds can make us feel like losers. Nowadays, people promote themselves like they’re saleable brands. Our culture emphasizes how I have to be me—loudly. Of course, children bear the brunt of this. They are pushed into thinking they can be anything or anyone they want to be—that is the American dream, after all. TikTok influencer fame is within reach. Some young people are being taught that they are the best, are built up with loads of self-esteem, and are protected from hardships and difficulties. However, this may lead to compounded feelings of failure.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "According to Sleep in Heavenly Peace, more than 140,000 children in the U.S. are currently waiting for a bed.", cn: "据'天堂安睡'组织称，美国目前有超过14万名儿童正在等待一张床。" },
-        { en: "Dr. Douglas Kirsch, medical director of sleep medicine at Atrium Health, emphasized how important proper sleep is for children's well-being.", cn: "中庭健康中心睡眠医学主任道格拉斯·基尔希博士强调了适当睡眠对儿童健康的重要性。" },
-        { en: "\"Without consistent, quality sleep, kids fall behind in ways that affect their health and learning,\" he said.", cn: "他说：'没有持续、优质的睡眠，孩子们会在健康和学习方面落后。'" }
+        { en: "Evolutionary psychologist Glenn Geher surmises that we have to think about failure as something other than a personal flaw. “The most successful among us are the people who have failed the most,” he says. A person who has been through hardship, he argues, will be less inclined to buckle when an obstacle stands in the way of progress.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "The beds built during the event will be distributed to more than 110 chapters of Sleep in Heavenly Peace across 36 states, helping thousands of children finally have a safe and comfortable place to sleep.", cn: "活动期间建造的床铺将分发到遍布36个州的110多个'天堂安睡'分会，帮助数千名儿童终于拥有一个安全舒适的睡眠之所。" },
-        { en: "Founded in 2012 by Luke Mickelson and Heidi Mickelson in Twin Falls, the nonprofit has already delivered more than 350,000 beds to children in need.", cn: "该非营利组织由卢克·米克尔森和海蒂·米克尔森于2012年在特温福尔斯创立，已向有需要的儿童运送了超过35万张床。" }
+        { en: "To make this worse, people who are more prone to negativity may ruminate about their failures, while others try not to think about them. But we do have to parse rather than dwell on each failure and the information it provides for success the next time around. Then again, others romanticize failure and turn it into a platitude or a badge of honor: “We must fail to succeed.” According to the work of Roman Krznaric, author of Carpe Diem Regained, we blunt failure when we do this, as if failure is the path to the promised land. Is there always a silver lining when failure strikes? No. Sometimes we just fail. Indulging in our failure does not move us forward. My mother used to quip, “When you done complain, go sweep floor.” I think she was right about seeing failure as a fact of life and little more. It just happens, and there’s nothing romantic about falling flat on my face.", cn: "" }
       ]
     },
     {
+      type: "text",
       sentences: [
-        { en: "For the children receiving the beds, the volunteers say the details of how they were built are not what matters most.", cn: "对于收到床的孩子们来说，志愿者们说，床是如何建造的细节并不是最重要的。" },
-        { en: "What matters is that each child will now have a place to sleep — and the comfort, security, and hope that comes with it.", cn: "重要的是，每个孩子现在都有了一个睡觉的地方——以及随之而来的舒适、安全和希望。" }
+        { en: "Accepting bad news is good, as acceptance is central to healthy positive thought, all of which leads to psychological growth and necessary brain rewiring.", cn: "" },
+        { en: "Becoming unglued or glorifying a defeat is the antithesis of a thoughtful approach to failure. It’s best to take a compassionate, no-nonsense view. In effect, let’s give ourselves a break. Take an open view of defeat and consider the following.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 3, text: "Practical Steps" },
+    {
+      type: "text",
+      sentences: [
+        { en: "Failure is not bad. It’s useful, inevitable, and good.", cn: "" },
+        { en: "If you are fussing over your performance, think about your purpose instead.", cn: "" },
+        { en: "If difficult emotions are present, tap into your physical sensations.", cn: "" },
+        { en: "Notice the thoughts that may come up, then let them go.", cn: "" },
+        { en: "Instead of overthinking and ruminating, take what you learned.", cn: "" },
+        { en: "Use new strategies and move on.", cn: "" },
+        { en: "If you fail, fail again, many times.", cn: "" },
+        { en: "Gather your failures like they’re working capital.", cn: "" }
       ]
     }
-  ]
+  ],
+  vocabulary: []
 };
