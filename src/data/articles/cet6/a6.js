@@ -1,149 +1,206 @@
-/* src/data/articles/cet6/a6.js */
+/* src/data/articles/cet6/a8.js */
 export default {
-    id: "CET6-6",
-    type: "CET6",
-    title: "Alien Island: Ashes and Assimilation",
-    titleCn: "异星孤岛：余烬与同化",
-    vocabulary: [
-      { word: "intellectual", phonetics: "/ˌɪntəˈlektʃuəl/", mean: "知识分子/智力的" },
-      { word: "liberal", phonetics: "/ˈlɪbərəl/", mean: "自由主义的/慷慨的" },
-      { word: "ideology", phonetics: "/ˌaɪdiˈɒlədʒi/", mean: "思想体系/意识形态" },
-      { word: "ignite", phonetics: "/ˈɪɡnaɪt/", mean: "点燃/引发" },
-      { word: "illuminate", phonetics: "/ˈɪluːmɪneɪt/", mean: "阐明/照亮" },
-      { word: "indigenous", phonetics: "/ɪnˈdɪdʒənəs/", mean: "土著的/本地的" },
-      { word: "illusion", phonetics: "/ˈɪluːʒn/", mean: "幻觉/错觉" },
-      { word: "imminent", phonetics: "/ˈɪmɪnənt/", mean: "即将来临的" },
-      { word: "landslide", phonetics: "/ˈlændslaɪd/", mean: "滑坡/压倒性胜利" },
-      { word: "imperative", phonetics: "/ˈɪmpərətɪv/", mean: "迫切的/必要的" },
-      { word: "implement", phonetics: "/ˈɪmplɪment/", mean: "实施/工具" },
-      { word: "innovation", phonetics: "/ˌɪnəˈveɪʃn/", mean: "创新" },
-      { word: "impart", phonetics: "/ˈɪmpɑːt/", mean: "传授/告知" },
-      { word: "literate", phonetics: "/ˈlɪtərət/", mean: "受过教育的/识字的" },
-      { word: "inhabitant", phonetics: "/ˈɪnhæbɪtənt/", mean: "居民" },
-      { word: "incumbent", phonetics: "/ˈɪnkʌmbənt/", mean: "现任的/义不容辞的" },
-      { word: "inspector", phonetics: "/ˈɪnspektə(r)/", mean: "检查员/视察员" },
-      { word: "institution", phonetics: "/ˈɪnstɪtʃən/", mean: "机构/制度" },
-      { word: "inhibit", phonetics: "/ˈɪnhɪbɪt/", mean: "抑制/阻碍" },
-      { word: "illicit", phonetics: "/ˈɪlɪsɪt/", mean: "违法的/不正当的" },
-      { word: "intrusion", phonetics: "/ˈɪntruːʒn/", mean: "侵入/干扰" },
-      { word: "interior", phonetics: "/ˈɪntɪəriə(r)/", mean: "内部的" },
-      { word: "intricate", phonetics: "/ˈɪntrɪkət/", mean: "复杂的/错综的" },
-      { word: "ivory", phonetics: "/ˈaɪvəri/", mean: "象牙/乳白色的" },
-      { word: "luminous", phonetics: "/ˈluːmɪnəs/", mean: "发光的" },
-      { word: "lizard", phonetics: "/ˈlɪzəd/", mean: "蜥蜴" },
-      { word: "interpret", phonetics: "/ˈɪntɜːprət/", mean: "解释/口译" },
-      { word: "intangible", phonetics: "/ˈɪntændʒəbl/", mean: "无形的/难以捉摸的" },
-      { word: "indicate", phonetics: "/ˈɪndɪkeɪt/", mean: "表明/指出" },
-      { word: "inherent", phonetics: "/ˈɪnhɪərənt/", mean: "固有的/内在的" },
-      { word: "intuition", phonetics: "/ˌɪntjuˈɪʃn/", mean: "直觉" },
-      { word: "integrity", phonetics: "/ˈɪnteɡrəti/", mean: "完整/诚实" },
-      { word: "ecosystem", phonetics: "/ˈiːkəʊsɪstəm/", mean: "生态系统" },
-      { word: "jeopardize", phonetics: "/ˈdʒepədaɪz/", mean: "危害" },
-      { word: "ingenious", phonetics: "/ˈɪndʒiːniəs/", mean: "巧妙的/有独创性的" },
-      { word: "incorporate", phonetics: "/ˈɪnkɔːpəreɪt/", mean: "合并/包含" },
-      { word: "infrastructure", phonetics: "/ˈɪnfrəstrʌktʃə(r)/", mean: "基础设施" },
-      { word: "interactive", phonetics: "/ˈɪntəræktɪv/", mean: "交互式的" },
-      { word: "instrument", phonetics: "/ˈɪnstrəmənt/", mean: "仪器/手段" },
-      { word: "interaction", phonetics: "/ˈɪntərækʃn/", mean: "相互作用" },
-      { word: "intermittent", phonetics: "/ˈɪntəmɪtənt/", mean: "间歇的/断断续续的" },
-      { word: "locomotive", phonetics: "/ˈləʊkəməʊtɪv/", mean: "火车的/运动的" },
-      { word: "interim", phonetics: "/ˈɪntərɪm/", mean: "暂时的/中间的" },
-      { word: "interrogate", phonetics: "/ˈɪntərəɡeɪt/", mean: "审问" },
-      { word: "inmate", phonetics: "/ˈɪnmeɪt/", mean: "囚犯/同住者" },
-      { word: "interrogation", phonetics: "/ˈɪntərəɡeɪʃn/", mean: "审问/质问" },
-      { word: "intense", phonetics: "/ˈɪntens/", mean: "强烈的/剧烈的" },
-      { word: "incredible", phonetics: "/ˈɪnkredəbl/", mean: "难以置信的" },
-      { word: "insist", phonetics: "/ˈɪnsɪst/", mean: "坚持认为" },
-      { word: "invisible", phonetics: "/ˈɪnvɪzəbl/", mean: "看不见的" },
-      { word: "infection", phonetics: "/ˈɪnfekʃn/", mean: "感染" },
-      { word: "infect", phonetics: "/ˈɪnfekt/", mean: "传染" },
-      { word: "influenza", phonetics: "/ˈɪnfluənzə/", mean: "流感" },
-      { word: "initial", phonetics: "/ˈɪnɪʃl/", mean: "最初的" },
-      { word: "inventory", phonetics: "/ˈɪnvəntri/", mean: "库存/清单" },
-      { word: "inject", phonetics: "/ˈɪndʒekt/", mean: "注射" },
-      { word: "infant", phonetics: "/ˈɪnfənt/", mean: "婴儿" },
-      { word: "indulge", phonetics: "/ˈɪndʌldʒ/", mean: "放纵/沉溺" },
-      { word: "inertia", phonetics: "/ˈɪnɜːʃə/", mean: "惯性/惰性" },
-      { word: "inflict", phonetics: "/ˈɪnflɪkt/", mean: "造成/使遭受" },
-      { word: "innocent", phonetics: "/ˈɪnəsnt/", mean: "无辜的" },
-      { word: "leopard", phonetics: "/ˈlepəd/", mean: "豹子" },
-      { word: "lure", phonetics: "/ˈlʊə(r)/", mean: "诱惑" },
-      { word: "juvenile", phonetics: "/ˈdʒuːvənaɪl/", mean: "青少年的" },
-      { word: "lethal", phonetics: "/ˈliːθl/", mean: "致命的" },
-      { word: "junction", phonetics: "/ˈdʒʌŋkʃn/", mean: "交叉口/连接" },
-      { word: "instinct", phonetics: "/ˈɪnstɪŋkt/", mean: "本能/天性" },
-      { word: "intervene", phonetics: "/ˈɪntəviːn/", mean: "干预/插入" },
-      { word: "improvise", phonetics: "/ˈɪmprəvaɪz/", mean: "即兴创作/临时凑合" },
-      { word: "loop", phonetics: "/ˈluːp/", mean: "圈/环" },
-      { word: "loose", phonetics: "/ˈluːs/", mean: "松的" },
-      { word: "insulate", phonetics: "/ˈɪnsjuleɪt/", mean: "绝缘/隔离" },
-      { word: "instantaneous", phonetics: "/ˌɪnstənˈteɪniəs/", mean: "瞬间的" },
-      { word: "impulse", phonetics: "/ˈɪmpʌls/", mean: "冲动/脉冲" },
-      { word: "liberate", phonetics: "/ˈlɪbəreɪt/", mean: "解放" },
-      { word: "indefinite", phonetics: "/ˈɪnˈdefɪnət/", mean: "无限期的/模糊的" },
-      { word: "legal", phonetics: "/ˈliːɡl/", mean: "法律的" },
-      { word: "limitation", phonetics: "/ˈlɪmɪteɪʃn/", mean: "限制/局限" },
-      { word: "invalid", phonetics: "/ˈɪnvælɪd/", mean: "无效的" },
-      { word: "infringe", phonetics: "/ˈɪnfrɪndʒ/", mean: "侵犯" },
-      { word: "innate", phonetics: "/ˈɪneɪt/", mean: "天生的" },
-      { word: "landscape", phonetics: "/ˈlændskeɪp/", mean: "风景/景观" },
-      { word: "linger", phonetics: "/ˈlɪŋɡə(r)/", mean: "徘徊/逗留" },
-      { word: "infinite", phonetics: "/ˈɪnfɪnət/", mean: "无限的" },
-      { word: "abyss", phonetics: "/ˈæbɪs/", mean: "深渊" },
-      { word: "initiate", phonetics: "/ˈɪnɪʃieɪt/", mean: "发起/开始" },
-      { word: "legacy", phonetics: "/ˈleɡəsi/", mean: "遗产/遗赠" },
-      { word: "index", phonetics: "/ˈɪndeks/", mean: "索引/指数" },
-      { word: "indicative", phonetics: "/ˈɪndɪkətɪv/", mean: "指示的/陈述的" },
-      { word: "indictment", phonetics: "/ˈɪndaɪtmənt/", mean: "起诉书" },
-      { word: "indifferent", phonetics: "/ˈɪndɪfrənt/", mean: "冷漠的" },
-      { word: "indispensable", phonetics: "/ˌɪndɪˈspensəbl/", mean: "必不可少的" },
-      { word: "induce", phonetics: "/ˈɪndjuːs/", mean: "诱导" },
-      { word: "infer", phonetics: "/ˈɪnfɜː(r)/", mean: "推断" },
-      { word: "inferior", phonetics: "/ˈɪnfɪəriə(r)/", mean: "较差的/下级的" },
-      { word: "inflate", phonetics: "/ˈɪnflət/", mean: "充气/通货膨胀" },
-      { word: "influence", phonetics: "/ˈɪnfluəns/", mean: "影响" },
-      { word: "inform", phonetics: "/ˈɪnfɔːm/", mean: "通知" },
-      { word: "insight", phonetics: "/ˈɪnsaɪt/", mean: "洞察力" },
-      { word: "inspire", phonetics: "/ˈɪnspaɪə(r)/", mean: "鼓舞" },
-      { word: "install", phonetics: "/ˈɪnstɔːl/", mean: "安装" }
-    ],
-    paragraphs: [
-      {
-        sentences: [
-          { en: "Professor Julian, an intellectual who held a liberal ideology, had to ignite the backup generator to illuminate the indigenous temple.", cn: "朱利安教授是一位秉持自由主义思想的知识分子，他必须启动备用发电机，以照亮这座土著神庙。" },
-          { en: "The illusion of safety was shattered by an imminent landslide.", cn: "安全的幻觉被一场迫在眉睫的山体滑坡彻底击碎。" },
-          { en: "He knew his mission was imperative: to implement the innovation and impart his knowledge to the literate inhabitants of the isle.", cn: "他深知使命紧迫：必须实施这项创新，并将知识传授给岛上识字的居民。" },
-          { en: "However, an incumbent inspector from the institution tried to inhibit his research, claiming it was an illicit intrusion.", cn: "然而，一名来自机构的现任检查员试图阻止他的研究，声称这是违法的入侵。" }
-        ]
-      },
-      {
-        sentences: [
-          { en: "The interior of the temple was intricate, with ivory pillars and luminous lizards crawling on the walls.", cn: "神庙内部结构错综复杂，象牙柱子林立，墙上爬满了发光的蜥蜴。" },
-          { en: "Julian had to interpret the intangible symbols that indicated an inherent power.", cn: "朱利安必须解读那些无形符号——它们暗示着一种与生俱来的力量。" },
-          { en: "His intuition told him that the integrity of the ecosystem was jeopardized.", cn: "他的直觉告诉他：生态系统的完整性正面临威胁。" },
-          { en: "He searched for an ingenious way to incorporate the island's infrastructure with his interactive instrument.", cn: "他寻找一种巧妙的方式，将岛屿的基础设施与他的交互式仪器融合。" },
-          { en: "The interaction between the two civilizations was intermittent, often interrupted by the locomotive noise of a nearby volcano.", cn: "两个文明间的交流断断续续，常被附近火山的轰鸣声打断。" }
-        ]
-      },
-      {
-        sentences: [
-          { en: "During the interim period, Julian began to interrogate a captured inmate.", cn: "在临时停顿期间，朱利安开始审问一名被俘的囚犯。" },
-          { en: "The interrogation was intense, but the inmate's defiance was incredible.", cn: "审讯异常激烈，但囚犯的反抗态度令人难以置信。" },
-          { en: "He insisted that the invisible infection would infect everyone, and the influenza was just the initial stage.", cn: "他坚持认为，这种无形的感染终将波及所有人，而流感不过是初始阶段。" },
-          { en: "Julian had to inspect the inventory of vaccines and inject the infant survivors.", cn: "朱利安必须检查疫苗库存，并为幸存的婴儿接种。" },
-          { en: "He wouldn't indulge in inertia or inflict more pain on the innocent.", cn: "他不愿沉溺于惰性，更不会对无辜者施加更多痛苦。" }
-        ]
-      },
-      {
-        sentences: [
-          { en: "Suddenly, a leopard tried to lure a juvenile into a lethal trap at the junction of the valley.", cn: "突然，一只豹子企图引诱一名少年进入山谷交汇处的致命陷阱。" },
-          { en: "Julian used his instinct to intervene.", cn: "朱利安凭本能果断介入。" },
-          { en: "He had to improvise a loop with a loose cable to insulate the leopard.", cn: "他临时用松散的电缆制作了一个圈套，将豹子隔离。" },
-          { en: "The outcome was instantaneous.", cn: "结果立竿见影。" },
-          { en: "He felt an impulse to liberate the tribe from their indefinite fear.", cn: "他心中涌起一股冲动：要将部落从无尽的恐惧中解放出来。" },
-          { en: "Even though the legal limitation was invalid, he would not infringe upon their innate rights.", cn: "尽管法律限制实属无效，他仍不愿侵犯他们与生俱来的权利。" },
-          { en: "He watched the luminous moon linger over the landscape, standing on the brink of an infinite abyss, ready to initiate a new legacy for humanity.", cn: "他凝望发光的满月久久悬于天际，伫立于无尽深渊的边缘，准备为人类开启一段崭新的遗产。" }
-        ]
-      }
-    ]
-  };
+  id: "CET6-6",
+  type: "CET6",
+  title: "'Think outside the bots': How to stop AI from turning your brain to mush",
+  titleCn: "跳出机器人思维：如何防止 AI 让你的大脑变迟钝",
+  paragraphs: [
+    { type: "date", text: "May 7, 2026" },
+    {
+      type: "text",
+      sentences: [
+        { en: "GPS ruined our sense of direction. Search engines weaken our memory. AI, scientists warn, could do the same to everything from creativity to critical thinking.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "Years ago, I forced myself to start using AI as often as possible. If I was going to be writing about it, I also had to use the technology. But an emerging crop of studies over the last year or so have me worried – am I harming my brain in the process?", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "These studies suggest people who lean too much on tools like ChatGPT could have problems with creativity, attention span, critical thinking, memory and more. Others raise concerns that AI users could be surrendering the cognitive friction that makes thinking sharp, and that as a society we may have fewer original ideas. But the science on this is brand new, and we don't have the answers. So should we be worried?", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "\"On a high level, yes,\" says Adam Greene, a professor of neuroscience and director of the Laboratory for Relational Cognition at Georgetown University in the US. There's a lot of nuance here, but AI will do work that used to require mental labour. \"There's plenty of evidence that if you are not doing as much of the actual thinking, then your capability to do that kind of thinking is going to atrophy.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "Even if you don't seek to use ChatGPT or Claude, there are AI responses at the top of Google and tech giants are rushing to shove more of it onto our phones. The technology is getting hard to avoid, but there are steps you can take to avoid the biggest potential risks.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "This isn't all or nothing though, according to Jared Benge, a professor and clinical neuropsychologist at Dell Medical School at the University of Texas at Austin. Using AI doesn't automatically mean it's going to be bad for you. For example, if AI frees up your brain space for other more important things, that might be great for your cognition.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "\"Why do we think AI is going to be that different from other things that our brain has already adapted to?\" Benge says. \"It's not inherent to the tool to be good or bad.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "As with any other technology, how we use AI will determine whether it helps us or harms us. But the concerns are serious enough that you might want to rethink how you use these tools – before it's too late.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "With this in mind, I spoke with some leading experts in this field to find out how they think we should use AI to ensure it doesn't dull our minds.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "What are we worried about?" },
+    {
+      type: "text",
+      sentences: [
+        { en: "Twenty years ago, an idea cropped up that overreliance on technology might cause some kind of \"digital dementia\" resulting in the deterioration of short-term memory and other cognitive processes. Benge recently co-authored a meta-analysis that looked at 57 studies covering more than 411,000 adults. All told, he and his co-author found no evidence for digital dementia. Technology use actually seemed to reduce the risk of cognitive impairment.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "But that doesn't mean there's nothing to fear.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "Studies have found that people who rely on satellite navigation like GPS stop building mental maps of their surroundings and their spatial memory continues to decline over time. A similar phenomenon called the \"Google Effect\" emerged when search engines took over. Apparently, we're less likely to remember information that we find using a search engine because it takes so little effort. It seems the brain gets worse at tasks when we outsource them. And AI is the most powerful outsourcing tool of all time.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "\"What's happening with AI is that it's giving us, for the first time, an easy way to trade process for product,\" Greene says. The essay can sound better. The presentation can look sharper. The retirement party joke can land perfectly. But the mental work, the struggle, the false starts and that moment when something finally clicks is exactly what your brain needs. \"It's like you're at the gym and a robot lifts the barbell for you,\" he says. \"You get nothing.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "So how can you use AI and still give your brain a work out?", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "Don't take AI's word for it" },
+    {
+      type: "text",
+      sentences: [
+        { en: "One recent study found heavier users of AI scored significantly worse on a standard critical thinking test, apparently because they're used to offloading their thought processes to robots. People even trust AI over their own thinking and intuition – even when the AI is wrong – something researchers at the University of Pennsylvania in the US call \"cognitive surrender\".", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "The problem gets worse the less you know. A study by Microsoft Research found you're most at risk when you're less familiar with a subject. \"If the user doesn't have the expertise to judge whether the output is great or not,\" says Hank Lee, a PhD candidate at Carnegie Mellon University who co-authored the study. \"That's the danger.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "The fix starts before you open the app. If you wouldn't trust a random stranger's answer to a question, you shouldn't trust AI either, says Lee. Those are exactly the topics where you need to bring your own judgment first. Try forming a rough view on the subject and using AI to challenge your perspective before you get the robot's opinion. That way AI is pressure-testing your thinking, rather than replacing it.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "Add friction to your research" },
+    {
+      type: "text",
+      sentences: [
+        { en: "\"If you look at something, it is in front of you and your vision sees it, you often think it's in long-term memory when it is not,\" says Barbara Oakley, an emeritus professor of engineering at the University of Oakland in the US who studies how the brain learns.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "There is some early research to suggest that AI can mess with your ability to retain information. A survey of 494 students also found who used ChatGPT more often were more likely to report memory loss. Self-reported assessments aren't hard science, but other research, such as an unpublished 2024 study, reveals that priming your brain with some light problem solving before using an AI chatbot can improve what you learn from the AI.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "When you're asking AI for your information you need to remember, it's also worth slowing down to engage with it. Take notes – ideally by hand, but typing them out works too. You can even ask the AI to quiz you, or to come up with flashcards. The work makes it stick. It sounds fussy, but friction is the point.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "Leave the blank page blank a little longer" },
+    {
+      type: "text",
+      sentences: [
+        { en: "AI is remarkably good at coming up with ideas. That's the problem. Research suggests that people who use AI for creative tasks produce ideas that are more predictable and less original than people who don't. This could be weakening your ability to be creative.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "Your brain builds creative capacity by making unexpected connections, Greene says. Hand that job to AI, and you skip the workout. \"We're worried about losing your creative muscle,\" says Greene. \"AI is tricking us in a number of ways to make us think that it is actually making us more creative.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "One approach to overcome this is to put your own ideas down on paper first, even if they're rough. Spend more time with a blank page and write whatever comes. The quality doesn't matter. What matters is that your brain is making the connections, and reaching across your own experiences, memories and knowledge to produce something only you could have come up with. That's the workout. Then use AI to develop, poke holes in or refine what you've got.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "Pay attention" },
+    {
+      type: "text",
+      sentences: [
+        { en: "You've made it this far into the article. Well done. But if your attention is starting to wander, you're not alone. It could be that my writing is boring you. Some research, however, also suggests the onslaught of technology is making it harder for us to focus. AI could compound the problem: answers are at your fingertips and with plenty of opportunities to skip difficulty and discomfort.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "But you can apply a similar logic to the other tips here: do things the slow way on purpose. Don't make ChatGPT summarise that long article. Sit with a hard problem before you ask a robot. Let yourself get bored. Unpleasant is the goal. That's your brain learning to tolerate, and eventually enjoy, the friction that deeper thinking requires.", cn: "" }
+      ]
+    },
+    { type: "heading", level: 2, text: "Human brains matter" },
+    {
+      type: "text",
+      sentences: [
+        { en: "I'm not here to tell you to stop using AI chatbots like ChatGPT, Claude or Gemini. But I'm forcing myself to be more thoughtful when I reach for them to try and keep my brain in the driver's seat.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "And that could leave me – and you – in a better position in the future. Greene says human brains are structurally different from AI in ways that really matter: we make connections that are personal, unexpected and genuinely novel in ways that digital probability machines simply can't replicate.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "\"The distinctness and diversity of human ideas is going to be the great value add in the coming years,\" he says. Greene predicts that forcing ourselves to \"think outside the bots\" will become a natural survival impulse to make it in society.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "And, as Benge points out, we've been down this road before. \"Our brains have always adapted to technology. We adapt all the time. It is our strength as a species,\" he says. \"Have we lost the ability to run marathons because we have cars? No. It becomes something that humans do because we want to do it.\"", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "The tools change. But apparently, the desire to think, create and figure things out for ourselves is harder to automate.", cn: "" }
+      ]
+    },
+    {
+      type: "text",
+      sentences: [
+        { en: "More like this:", cn: "" },
+        { en: "• Why AI companies want you to be afraid of them", cn: "" },
+        { en: "• Can we predict when the next global crisis will hit?", cn: "" },
+        { en: "• This monkey selfie will protect you from AI slop", cn: "" }
+      ]
+    }
+  ],
+  vocabulary: []
+};
